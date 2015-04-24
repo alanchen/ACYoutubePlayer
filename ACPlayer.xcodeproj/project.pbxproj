@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8BFB8303C23CC085D21CAB5F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A67CC043B429DFB3048EC5B /* libPods.a */; };
 		E7598A231AE62FF100ABD53B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7598A221AE62FF100ABD53B /* main.m */; };
 		E7598A261AE62FF100ABD53B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E7598A251AE62FF100ABD53B /* AppDelegate.m */; };
 		E7598A291AE62FF100ABD53B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7598A281AE62FF100ABD53B /* ViewController.m */; };
@@ -14,6 +15,22 @@
 		E7598A2E1AE62FF100ABD53B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7598A2D1AE62FF100ABD53B /* Images.xcassets */; };
 		E7598A311AE62FF100ABD53B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7598A2F1AE62FF100ABD53B /* LaunchScreen.xib */; };
 		E7598A3D1AE62FF100ABD53B /* ACPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E7598A3C1AE62FF100ABD53B /* ACPlayerTests.m */; };
+		E7DF13201AEA05400095C03B /* YouTubeAPIService.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DF13061AEA05400095C03B /* YouTubeAPIService.m */; };
+		E7DF13211AEA05400095C03B /* YouTubeVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DF13081AEA05400095C03B /* YouTubeVideoModel.m */; };
+		E7DF13221AEA05400095C03B /* ACConstraintHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DF130B1AEA05400095C03B /* ACConstraintHelper.m */; };
+		E7DF13231AEA05400095C03B /* ACYTControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DF130D1AEA05400095C03B /* ACYTControlView.m */; };
+		E7DF13241AEA05400095C03B /* ACYTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DF130F1AEA05400095C03B /* ACYTPlayerView.m */; };
+		E7DF13251AEA05400095C03B /* yt_compress.png in Resources */ = {isa = PBXBuildFile; fileRef = E7DF13111AEA05400095C03B /* yt_compress.png */; };
+		E7DF13261AEA05400095C03B /* yt_expand.png in Resources */ = {isa = PBXBuildFile; fileRef = E7DF13121AEA05400095C03B /* yt_expand.png */; };
+		E7DF13271AEA05400095C03B /* yt_next.png in Resources */ = {isa = PBXBuildFile; fileRef = E7DF13131AEA05400095C03B /* yt_next.png */; };
+		E7DF13281AEA05400095C03B /* yt_pause.png in Resources */ = {isa = PBXBuildFile; fileRef = E7DF13141AEA05400095C03B /* yt_pause.png */; };
+		E7DF13291AEA05400095C03B /* yt_play.png in Resources */ = {isa = PBXBuildFile; fileRef = E7DF13151AEA05400095C03B /* yt_play.png */; };
+		E7DF132A1AEA05400095C03B /* yt_previous.png in Resources */ = {isa = PBXBuildFile; fileRef = E7DF13161AEA05400095C03B /* yt_previous.png */; };
+		E7DF132B1AEA05400095C03B /* YTPlayerView-iframe-player.html in Resources */ = {isa = PBXBuildFile; fileRef = E7DF13191AEA05400095C03B /* YTPlayerView-iframe-player.html */; };
+		E7DF132C1AEA05400095C03B /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DF131C1AEA05400095C03B /* YTPlayerView.m */; };
+		E7DF132D1AEA05400095C03B /* YouTubeListTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DF131F1AEA05400095C03B /* YouTubeListTableCell.m */; };
+		E7DF13341AEA3D210095C03B /* yt_hd_off.png in Resources */ = {isa = PBXBuildFile; fileRef = E7DF13321AEA3D210095C03B /* yt_hd_off.png */; };
+		E7DF13351AEA3D210095C03B /* yt_hd_on.png in Resources */ = {isa = PBXBuildFile; fileRef = E7DF13331AEA3D210095C03B /* yt_hd_on.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E797E33B266B2B5FC2478DF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		9A67CC043B429DFB3048EC5B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2C5ED6438DD506C446E702A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E7598A1D1AE62FF100ABD53B /* ACPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7598A211AE62FF100ABD53B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7598A221AE62FF100ABD53B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -40,6 +60,29 @@
 		E7598A361AE62FF100ABD53B /* ACPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ACPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7598A3B1AE62FF100ABD53B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7598A3C1AE62FF100ABD53B /* ACPlayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACPlayerTests.m; sourceTree = "<group>"; };
+		E7DF13051AEA05400095C03B /* YouTubeAPIService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouTubeAPIService.h; sourceTree = "<group>"; };
+		E7DF13061AEA05400095C03B /* YouTubeAPIService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouTubeAPIService.m; sourceTree = "<group>"; };
+		E7DF13071AEA05400095C03B /* YouTubeVideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouTubeVideoModel.h; sourceTree = "<group>"; };
+		E7DF13081AEA05400095C03B /* YouTubeVideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouTubeVideoModel.m; sourceTree = "<group>"; };
+		E7DF130A1AEA05400095C03B /* ACConstraintHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACConstraintHelper.h; sourceTree = "<group>"; };
+		E7DF130B1AEA05400095C03B /* ACConstraintHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACConstraintHelper.m; sourceTree = "<group>"; };
+		E7DF130C1AEA05400095C03B /* ACYTControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACYTControlView.h; sourceTree = "<group>"; };
+		E7DF130D1AEA05400095C03B /* ACYTControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACYTControlView.m; sourceTree = "<group>"; };
+		E7DF130E1AEA05400095C03B /* ACYTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACYTPlayerView.h; sourceTree = "<group>"; };
+		E7DF130F1AEA05400095C03B /* ACYTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACYTPlayerView.m; sourceTree = "<group>"; };
+		E7DF13111AEA05400095C03B /* yt_compress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yt_compress.png; sourceTree = "<group>"; };
+		E7DF13121AEA05400095C03B /* yt_expand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yt_expand.png; sourceTree = "<group>"; };
+		E7DF13131AEA05400095C03B /* yt_next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yt_next.png; sourceTree = "<group>"; };
+		E7DF13141AEA05400095C03B /* yt_pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yt_pause.png; sourceTree = "<group>"; };
+		E7DF13151AEA05400095C03B /* yt_play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yt_play.png; sourceTree = "<group>"; };
+		E7DF13161AEA05400095C03B /* yt_previous.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yt_previous.png; sourceTree = "<group>"; };
+		E7DF13191AEA05400095C03B /* YTPlayerView-iframe-player.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "YTPlayerView-iframe-player.html"; sourceTree = "<group>"; };
+		E7DF131B1AEA05400095C03B /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
+		E7DF131C1AEA05400095C03B /* YTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
+		E7DF131E1AEA05400095C03B /* YouTubeListTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouTubeListTableCell.h; sourceTree = "<group>"; };
+		E7DF131F1AEA05400095C03B /* YouTubeListTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouTubeListTableCell.m; sourceTree = "<group>"; };
+		E7DF13321AEA3D210095C03B /* yt_hd_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yt_hd_off.png; sourceTree = "<group>"; };
+		E7DF13331AEA3D210095C03B /* yt_hd_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yt_hd_on.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BFB8303C23CC085D21CAB5F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +104,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28DCBA129406FBF297A5CCAA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9A67CC043B429DFB3048EC5B /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3E94BC5FA7CA2021A86F8960 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C2C5ED6438DD506C446E702A /* Pods.debug.xcconfig */,
+				7E797E33B266B2B5FC2478DF /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E7598A141AE62FF100ABD53B = {
 			isa = PBXGroup;
 			children = (
 				E7598A1F1AE62FF100ABD53B /* ACPlayer */,
 				E7598A391AE62FF100ABD53B /* ACPlayerTests */,
 				E7598A1E1AE62FF100ABD53B /* Products */,
+				3E94BC5FA7CA2021A86F8960 /* Pods */,
+				28DCBA129406FBF297A5CCAA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,6 +144,7 @@
 		E7598A1F1AE62FF100ABD53B /* ACPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				E7DF13031AEA05400095C03B /* ACYoutube */,
 				E7598A241AE62FF100ABD53B /* AppDelegate.h */,
 				E7598A251AE62FF100ABD53B /* AppDelegate.m */,
 				E7598A271AE62FF100ABD53B /* ViewController.h */,
@@ -119,6 +183,92 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		E7DF13031AEA05400095C03B /* ACYoutube */ = {
+			isa = PBXGroup;
+			children = (
+				E7DF13041AEA05400095C03B /* API */,
+				E7DF13091AEA05400095C03B /* Player */,
+				E7DF131D1AEA05400095C03B /* View */,
+			);
+			path = ACYoutube;
+			sourceTree = "<group>";
+		};
+		E7DF13041AEA05400095C03B /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E7DF13051AEA05400095C03B /* YouTubeAPIService.h */,
+				E7DF13061AEA05400095C03B /* YouTubeAPIService.m */,
+				E7DF13071AEA05400095C03B /* YouTubeVideoModel.h */,
+				E7DF13081AEA05400095C03B /* YouTubeVideoModel.m */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		E7DF13091AEA05400095C03B /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				E7DF130A1AEA05400095C03B /* ACConstraintHelper.h */,
+				E7DF130B1AEA05400095C03B /* ACConstraintHelper.m */,
+				E7DF130C1AEA05400095C03B /* ACYTControlView.h */,
+				E7DF130D1AEA05400095C03B /* ACYTControlView.m */,
+				E7DF130E1AEA05400095C03B /* ACYTPlayerView.h */,
+				E7DF130F1AEA05400095C03B /* ACYTPlayerView.m */,
+				E7DF13101AEA05400095C03B /* Asset */,
+				E7DF13171AEA05400095C03B /* Youtube */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		E7DF13101AEA05400095C03B /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				E7DF13321AEA3D210095C03B /* yt_hd_off.png */,
+				E7DF13331AEA3D210095C03B /* yt_hd_on.png */,
+				E7DF13111AEA05400095C03B /* yt_compress.png */,
+				E7DF13121AEA05400095C03B /* yt_expand.png */,
+				E7DF13131AEA05400095C03B /* yt_next.png */,
+				E7DF13141AEA05400095C03B /* yt_pause.png */,
+				E7DF13151AEA05400095C03B /* yt_play.png */,
+				E7DF13161AEA05400095C03B /* yt_previous.png */,
+			);
+			path = Asset;
+			sourceTree = "<group>";
+		};
+		E7DF13171AEA05400095C03B /* Youtube */ = {
+			isa = PBXGroup;
+			children = (
+				E7DF13181AEA05400095C03B /* Assets */,
+				E7DF131A1AEA05400095C03B /* Classes */,
+			);
+			path = Youtube;
+			sourceTree = "<group>";
+		};
+		E7DF13181AEA05400095C03B /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E7DF13191AEA05400095C03B /* YTPlayerView-iframe-player.html */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		E7DF131A1AEA05400095C03B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E7DF131B1AEA05400095C03B /* YTPlayerView.h */,
+				E7DF131C1AEA05400095C03B /* YTPlayerView.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		E7DF131D1AEA05400095C03B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E7DF131E1AEA05400095C03B /* YouTubeListTableCell.h */,
+				E7DF131F1AEA05400095C03B /* YouTubeListTableCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +276,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E7598A401AE62FF100ABD53B /* Build configuration list for PBXNativeTarget "ACPlayer" */;
 			buildPhases = (
+				2E1EFA60576D95FEE26B1691 /* Check Pods Manifest.lock */,
 				E7598A191AE62FF100ABD53B /* Sources */,
 				E7598A1A1AE62FF100ABD53B /* Frameworks */,
 				E7598A1B1AE62FF100ABD53B /* Resources */,
+				F1DA2D0CA24A3420FC7C3497 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -199,9 +351,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7DF132A1AEA05400095C03B /* yt_previous.png in Resources */,
+				E7DF13291AEA05400095C03B /* yt_play.png in Resources */,
+				E7DF13281AEA05400095C03B /* yt_pause.png in Resources */,
 				E7598A2C1AE62FF100ABD53B /* Main.storyboard in Resources */,
+				E7DF132B1AEA05400095C03B /* YTPlayerView-iframe-player.html in Resources */,
+				E7DF13341AEA3D210095C03B /* yt_hd_off.png in Resources */,
 				E7598A311AE62FF100ABD53B /* LaunchScreen.xib in Resources */,
+				E7DF13351AEA3D210095C03B /* yt_hd_on.png in Resources */,
+				E7DF13251AEA05400095C03B /* yt_compress.png in Resources */,
+				E7DF13261AEA05400095C03B /* yt_expand.png in Resources */,
 				E7598A2E1AE62FF100ABD53B /* Images.xcassets in Resources */,
+				E7DF13271AEA05400095C03B /* yt_next.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +375,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2E1EFA60576D95FEE26B1691 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F1DA2D0CA24A3420FC7C3497 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E7598A191AE62FF100ABD53B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -221,6 +415,13 @@
 			files = (
 				E7598A291AE62FF100ABD53B /* ViewController.m in Sources */,
 				E7598A261AE62FF100ABD53B /* AppDelegate.m in Sources */,
+				E7DF132C1AEA05400095C03B /* YTPlayerView.m in Sources */,
+				E7DF13211AEA05400095C03B /* YouTubeVideoModel.m in Sources */,
+				E7DF13231AEA05400095C03B /* ACYTControlView.m in Sources */,
+				E7DF13241AEA05400095C03B /* ACYTPlayerView.m in Sources */,
+				E7DF13201AEA05400095C03B /* YouTubeAPIService.m in Sources */,
+				E7DF13221AEA05400095C03B /* ACConstraintHelper.m in Sources */,
+				E7DF132D1AEA05400095C03B /* YouTubeListTableCell.m in Sources */,
 				E7598A231AE62FF100ABD53B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,9 +548,11 @@
 		};
 		E7598A411AE62FF100ABD53B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2C5ED6438DD506C446E702A /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ACPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -357,9 +560,11 @@
 		};
 		E7598A421AE62FF100ABD53B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E797E33B266B2B5FC2478DF /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ACPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -378,6 +583,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = ACPlayerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ACPlayer.app/ACPlayer";
@@ -393,6 +599,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = ACPlayerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ACPlayer.app/ACPlayer";
@@ -418,6 +625,7 @@
 				E7598A421AE62FF100ABD53B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E7598A431AE62FF100ABD53B /* Build configuration list for PBXNativeTarget "ACPlayerTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +634,7 @@
 				E7598A451AE62FF100ABD53B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
