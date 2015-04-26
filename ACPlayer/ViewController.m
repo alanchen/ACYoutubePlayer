@@ -67,10 +67,10 @@
     [self.control.expandBtn addTarget:self action:@selector(expandPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.control.hdBtn addTarget:self action:@selector(hdPressed) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.control.slider addTarget:self action:@selector(sliderAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.control.slider addTarget:self action:@selector(sliderAction) forControlEvents:UIControlEventTouchUpOutside];
-    
-    
+    [self.control.slider addTarget:self action:@selector(sliderAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.control.slider addTarget:self action:@selector(sliderAction:) forControlEvents:UIControlEventTouchUpOutside];
+
+
     //////////////////////////////////////////////////////////////////////////////
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero];
@@ -89,7 +89,7 @@
 
 -(void)apiGetVideo
 {
-    [[YouTubeAPIService sharedInstance] apiSearchVideoDetaiilWithQuery:@"miss A" maxResults:10 order:@"viewcount" params:nil success:^(NSMutableArray *results, id responseObject, id info)
+    [[YouTubeAPIService sharedInstance] apiSearchVideoDetaiilWithQuery:@"周杰倫" maxResults:10 order:@"viewcount" params:nil success:^(NSMutableArray *results, id responseObject, id info)
      {
          self.objects = results;
 
@@ -124,8 +124,7 @@
 
 - (void)playerViewDidPlaying:(ACYTPlayerView *)playerView seekTime:(float)time
 {
-    if(self.control.slider.state == UIGestureRecognizerStatePossible)
-        self.control.slider.value = time;
+    [self.control setSliedrValue:time];
     
     if([self.playerView playerState] == kYTPlayerStateEnded)
     {
@@ -141,9 +140,9 @@
 
 #pragma mark - Action
 
--(void)sliderAction
-{
-      [self.playerView seekTo:self.control.slider.value];
+-(void)sliderAction:(UISlider *)s
+{    
+    [self.playerView seekTo:self.control.slider.value];
 }
 
 -(void)hdPressed

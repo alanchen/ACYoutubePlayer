@@ -18,6 +18,7 @@
 @property (nonatomic,strong)UIButton *playBtn;
 @property (nonatomic,strong)UIButton *expandBtn;
 @property (nonatomic,strong)UIButton *hdBtn;
+@property (nonatomic,strong)UIButton *closeBtn;
 
 @property (nonatomic,strong)UISlider *slider;
 
@@ -26,6 +27,7 @@
 
 -(void)hideWithAnimation:(BOOL)animation;
 
+-(void)setSliedrValue:(float)value;
 
 
 @end

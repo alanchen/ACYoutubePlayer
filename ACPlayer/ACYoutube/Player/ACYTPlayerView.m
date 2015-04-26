@@ -95,6 +95,9 @@
 {
     float current = [self currentTime] / [self duration];
     
+    if(self.playerState != kYTPlayerStatePlaying)
+        return;
+    
     if([_playerViewDelegate respondsToSelector:@selector(playerViewDidPlaying:seekTime:)])
     {
         [_playerViewDelegate playerViewDidPlaying:self seekTime:current];

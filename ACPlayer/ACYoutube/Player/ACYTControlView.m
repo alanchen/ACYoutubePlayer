@@ -12,9 +12,11 @@
 float kButtonW = 40.0;
 float kButtonH = 40.0;
 
-@interface ACYTControlView ()
+@interface ACYTControlView ()<UIGestureRecognizerDelegate>
 
 @property (nonatomic) BOOL show;
+
+@property (nonatomic,strong) UITapGestureRecognizer *tapG;
 
 @end
 
@@ -31,12 +33,10 @@ float kButtonH = 40.0;
         self.bgView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
         [self addSubview:self.bgView];
         
-        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        self.titleLabel.backgroundColor = [UIColor clearColor];
-        self.titleLabel.textAlignment = NSTextAlignmentCenter;
-        self.titleLabel.textColor = [UIColor whiteColor];
+        self.titleLabel = [self addLabel];
         self.titleLabel.font = [UIFont systemFontOfSize:13];
-        [self.bgView addSubview:self.titleLabel];
+        self.titleLabel.numberOfLines = 2;
+        
         
         self.nextBtn = [self addButtonWithImage:@"yt_next" selectImage:nil];
         self.preBtn = [self addButtonWithImage:@"yt_previous" selectImage:nil];
@@ -46,13 +46,17 @@ float kButtonH = 40.0;
         
         self.hdBtn = [self addButtonWithImage:@"yt_hd_on" selectImage:@"yt_hd_off"];
         
+        self.closeBtn = [self addButtonWithImage:@"yt_close" selectImage:nil];
+        
         self.slider = [[UISlider alloc] initWithFrame:CGRectZero];
+        [self.slider setContinuous:NO];
         [self.bgView addSubview:self.slider];
         
         [self addConstraints];
         
-        UITapGestureRecognizer *g = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
-        [self addGestureRecognizer:g];
+        self.tapG = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
+        self.tapG.delegate = self;
+        [self addGestureRecognizer:self.tapG];
     }
     
     return self;
@@ -74,6 +78,19 @@ float kButtonH = 40.0;
     return btn;
 }
 
+-(UILabel *)addLabel
+{
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+    label.backgroundColor = [UIColor clearColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor whiteColor];
+    label.font = [UIFont systemFontOfSize:12];
+    label.numberOfLines = 1;
+    [self.bgView addSubview:label];
+    
+    return label;
+}
+
 -(void)tapped:(UITapGestureRecognizer *)g
 {
     CGPoint touchPoint = [g locationInView: self];
@@ -87,6 +104,17 @@ float kButtonH = 40.0;
     else
         [self showWithAnimation:YES];
 }
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer;
+{
+    CGPoint touchPoint = [gestureRecognizer locationInView: self];
+    
+    if(gestureRecognizer==self.tapG && CGRectContainsPoint(self.slider.frame, touchPoint))
+        return NO;
+    
+    return YES;
+}
+
 
 #pragma  mark - Public
 
@@ -132,6 +160,12 @@ float kButtonH = 40.0;
     }];
 }
 
+-(void)setSliedrValue:(float)value
+{
+    if(self.slider.state == UIGestureRecognizerStatePossible && self.slider.state !=UIControlEventValueChanged)
+        self.slider.value = value;
+}
+
 #pragma  mark - Layout
 
 -(void)addConstraints
@@ -143,6 +177,7 @@ float kButtonH = 40.0;
     [self.preBtn    setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.expandBtn setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.hdBtn     setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.closeBtn     setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.slider    setTranslatesAutoresizingMaskIntoConstraints:NO];
 
     NSDictionary *metrics = @{@"space": @10,
@@ -156,6 +191,7 @@ float kButtonH = 40.0;
                             @"pre": self.preBtn,
                             @"expand": self.expandBtn,
                             @"hd": self.hdBtn,
+                            @"close": self.closeBtn,
                             @"slider": self.slider};
     
     
@@ -203,7 +239,7 @@ float kButtonH = 40.0;
                                         views:views]];
     
     [myConstraint2 addObjectsFromArray:[NSLayoutConstraint
-                                        constraintsWithVisualFormat:@"V:|-(20)-[title(20)]-(>=space)-|"
+                                        constraintsWithVisualFormat:@"V:|-(20)-[title(40)]-(>=space)-|"
                                         options:0
                                         metrics:metrics
                                         views:views]];
@@ -227,7 +263,7 @@ float kButtonH = 40.0;
                                         views:views]];
     
     [myConstraint2 addObjectsFromArray:[NSLayoutConstraint
-                                        constraintsWithVisualFormat:@"H:|-(space2x)-[title(>=100)]-(space2x)-|"
+                                        constraintsWithVisualFormat:@"H:|-(60)-[title(>=100)]-(60)-|"
                                         options:0
                                         metrics:metrics
                                         views:views]];
@@ -239,6 +275,9 @@ float kButtonH = 40.0;
     [myConstraint2 addObject:[ACConstraintHelper constraintCenterY:self.slider  with:self.expandBtn]];
     [myConstraint2 addObject:[ACConstraintHelper constraintCenterX:self.slider  with:self.bgView]];
     
+    [myConstraint2 addObjectsFromArray:[ACConstraintHelper constraintSize:self.closeBtn with:self.expandBtn]];
+    [myConstraint2 addObject:[ACConstraintHelper constraintCenterY:self.closeBtn  with:self.titleLabel]];
+    [myConstraint2 addObject:[ACConstraintHelper alignLeft:self.closeBtn with:self.hdBtn]];
 
     [self.bgView addConstraints:myConstraint2];
 }
