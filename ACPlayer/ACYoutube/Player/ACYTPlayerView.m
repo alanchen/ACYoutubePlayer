@@ -177,7 +177,7 @@
 
 - (void)playerView:(YTPlayerView *)playerView didChangeToQuality:(YTPlaybackQuality)quality;
 {
-//    NSLog(@"playerView didChangeToQuality %ld", (long)quality);
+    NSLog(@"playerView didChangeToQuality %ld", (long)quality);
     
     if([_playerViewDelegate respondsToSelector:@selector(playerView:didChangeToQuality:)])
     {
