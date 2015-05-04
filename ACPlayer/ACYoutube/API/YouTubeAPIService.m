@@ -112,7 +112,7 @@ static NSString *apiKey = @"AIzaSyB4BlXGyBiGs1x_sR__MXkbw66et0lIhkw";
     NSString *arg_order = [NSString stringWithFormat:@"&order=%@",order];
     NSString *arg_q = [NSString stringWithFormat:@"&q=%@",query];
     NSString *arg_maxResults = [NSString stringWithFormat:@"&maxResults=%lu",(unsigned long)maxResults];
-    NSString *args =[NSString stringWithFormat:@"&part=id%@%@%@&videoSyndicated=any&type=any&videoDefinition=high",arg_order,arg_q,arg_maxResults];
+    NSString *args =[NSString stringWithFormat:@"&part=id%@%@%@&videoSyndicated=any&type=video&videoDefinition=high",arg_order,arg_q,arg_maxResults];
     
     if(params)
         args = [args stringByAppendingString:params];
@@ -161,7 +161,7 @@ static NSString *apiKey = @"AIzaSyB4BlXGyBiGs1x_sR__MXkbw66et0lIhkw";
     
     NSString *arg_order = [NSString stringWithFormat:@"&order=%@",order];
     NSString *arg_maxResults = [NSString stringWithFormat:@"&maxResults=%lu",(unsigned long)maxResults];
-    NSString *args =[NSString stringWithFormat:@"&part=id&channelId=%@%@%@&videoSyndicated=any&type=any&videoDefinition=high",channelId,arg_order,arg_maxResults];
+    NSString *args =[NSString stringWithFormat:@"&part=id&channelId=%@%@%@&videoSyndicated=any&type=video&videoDefinition=high",channelId,arg_order,arg_maxResults];
     
     if(params)
         args = [args stringByAppendingString:params];
