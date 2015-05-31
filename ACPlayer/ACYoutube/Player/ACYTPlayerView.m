@@ -82,7 +82,7 @@
         return;
     
     __weak __typeof(self)weakSelf = self;
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:weakSelf selector:@selector(timerLoop) userInfo:nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:weakSelf selector:@selector(timerLoop) userInfo:nil repeats:YES];
 }
 
 -(void)timerLoopCancel

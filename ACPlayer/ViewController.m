@@ -125,6 +125,8 @@
 - (void)playerViewDidPlaying:(ACYTPlayerView *)playerView seekTime:(float)time
 {
     [self.control setSliedrValue:time];
+    [self.control setLeftTime:playerView.currentTime];
+    [self.control setRightTime:playerView.duration];
     
     if([self.playerView playerState] == kYTPlayerStateEnded)
     {

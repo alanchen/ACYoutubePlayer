@@ -20,14 +20,20 @@
 @property (nonatomic,strong)UIButton *hdBtn;
 @property (nonatomic,strong)UIButton *closeBtn;
 
-@property (nonatomic,strong)UISlider *slider;
+@property (nonatomic,strong)UILabel  *timeLeftLabel;
+@property (nonatomic,strong)UILabel  *timeRightLabel;
 
+@property (nonatomic,strong)UISlider *slider;
 
 -(void)showWithAnimation:(BOOL)animation;
 
 -(void)hideWithAnimation:(BOOL)animation;
 
 -(void)setSliedrValue:(float)value;
+
+-(void)setLeftTime:(float)value;
+
+-(void)setRightTime:(float)value;
 
 
 @end

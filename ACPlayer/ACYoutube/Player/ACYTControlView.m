@@ -9,8 +9,11 @@
 #import "ACYTControlView.h"
 #import "ACConstraintHelper.h"
 
-float kButtonW = 40.0;
-float kButtonH = 40.0;
+float kButtonW = 30.0;
+float kButtonH = 30.0;
+
+float kTimeW = 35.0;
+float kTimeH = 30.0;
 
 @interface ACYTControlView ()<UIGestureRecognizerDelegate>
 
@@ -37,6 +40,13 @@ float kButtonH = 40.0;
         self.titleLabel.font = [UIFont systemFontOfSize:13];
         self.titleLabel.numberOfLines = 2;
         
+        self.timeLeftLabel = [self addLabel];
+        [self.timeLeftLabel setAdjustsFontSizeToFitWidth:YES];
+        self.timeRightLabel = [self addLabel];
+        [self.timeRightLabel setAdjustsFontSizeToFitWidth:YES];
+
+        self.timeRightLabel.text = @"00:00";
+        self.timeLeftLabel.text = @"00:00";
         
         self.nextBtn = [self addButtonWithImage:@"yt_next" selectImage:nil];
         self.preBtn = [self addButtonWithImage:@"yt_previous" selectImage:nil];
@@ -115,6 +125,19 @@ float kButtonH = 40.0;
     return YES;
 }
 
+-(NSString *)formatTimeFromSeconds:(int)numberOfSeconds
+{
+    int seconds = numberOfSeconds % 60;
+    int minutes = (numberOfSeconds / 60) % 60;
+    int hours = numberOfSeconds / 3600;
+    
+    if (hours) {
+        return [NSString stringWithFormat:@"%d:%02d:%02d", hours, minutes,seconds];
+    }
+    
+    return [NSString stringWithFormat:@"%02d:%02d", minutes, seconds];
+}
+
 
 #pragma  mark - Public
 
@@ -166,6 +189,16 @@ float kButtonH = 40.0;
         self.slider.value = value;
 }
 
+-(void)setLeftTime:(float)value
+{
+    self.timeLeftLabel.text = [self formatTimeFromSeconds:value];
+}
+
+-(void)setRightTime:(float)value
+{
+    self.timeRightLabel.text = [self formatTimeFromSeconds:value];
+}
+
 #pragma  mark - Layout
 
 -(void)addConstraints
@@ -179,13 +212,19 @@ float kButtonH = 40.0;
     [self.hdBtn     setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.closeBtn     setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.slider    setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.timeRightLabel    setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.timeLeftLabel    setTranslatesAutoresizingMaskIntoConstraints:NO];
 
     NSDictionary *metrics = @{@"space": @10,
                               @"space2x": @40,
                               @"buttonW": @(kButtonW),
-                              @"buttonH": @(kButtonH)};
+                              @"buttonH": @(kButtonH),
+                              @"timeH": @(kTimeH),
+                              @"timeW": @(kTimeW)};
     
     NSDictionary *views = @{@"title": self.titleLabel,
+                            @"timeL": self.timeLeftLabel,
+                            @"timeR": self.timeRightLabel,
                             @"play": self.playBtn,
                             @"next": self.nextBtn,
                             @"pre": self.preBtn,
@@ -205,13 +244,6 @@ float kButtonH = 40.0;
     [myConstraint2 addObject:[ACConstraintHelper constraintCenterY:self.playBtn with:self.bgView]];
     [myConstraint2 addObject:[ACConstraintHelper constraintCenterY:self.nextBtn with:self.playBtn]];
     [myConstraint2 addObject:[ACConstraintHelper constraintCenterY:self.preBtn with:self.playBtn]];
-    
-    [myConstraint2 addObjectsFromArray:[NSLayoutConstraint
-                                        constraintsWithVisualFormat:@"H:|-(>=space2x)-[play(buttonW)]-(>=space2x)-|"
-                                        options:0
-                                        metrics:metrics
-                                        views:views]];
-
     
     NSString *format = @"H:|-(>=space2x)-[pre(buttonW)]-(space2x)-[play(buttonW)]-(space2x)-[next(buttonW)]-(>=space2x)-|";
     [myConstraint2 addObjectsFromArray:[NSLayoutConstraint
@@ -233,37 +265,19 @@ float kButtonH = 40.0;
                                         views:views]];
     
     [myConstraint2 addObjectsFromArray:[NSLayoutConstraint
-                                        constraintsWithVisualFormat:@"V:|-(>=space2x)-[hd(buttonH)]-(space)-|"
-                                        options:0
-                                        metrics:metrics
-                                        views:views]];
-    
-    [myConstraint2 addObjectsFromArray:[NSLayoutConstraint
                                         constraintsWithVisualFormat:@"V:|-(20)-[title(40)]-(>=space)-|"
                                         options:0
                                         metrics:metrics
                                         views:views]];
     
     [myConstraint2 addObjectsFromArray:[NSLayoutConstraint
-                                        constraintsWithVisualFormat:@"H:|-(>=space2x)-[slider(>=140)]-80-|"
+                                        constraintsWithVisualFormat:@"H:|-(space)-[timeL(timeW)]-(space)-[slider(>=50)]-(space)-[timeR(timeW)]-(space)-[expand(buttonW)]-(space)-|"
                                         options:0
                                         metrics:metrics
                                         views:views]];
     
     [myConstraint2 addObjectsFromArray:[NSLayoutConstraint
-                                        constraintsWithVisualFormat:@"H:|-(>=space2x)-[expand(buttonW)]-(space)-|"
-                                        options:0
-                                        metrics:metrics
-                                        views:views]];
-    
-    [myConstraint2 addObjectsFromArray:[NSLayoutConstraint
-                                        constraintsWithVisualFormat:@"H:|-(space)-[hd(buttonW)]-(>=space)-|"
-                                        options:0
-                                        metrics:metrics
-                                        views:views]];
-    
-    [myConstraint2 addObjectsFromArray:[NSLayoutConstraint
-                                        constraintsWithVisualFormat:@"H:|-(60)-[title(>=100)]-(60)-|"
+                                        constraintsWithVisualFormat:@"H:|-(space)-[close(buttonW)]-(space)-[title(>=100)]-(space)-[hd(buttonW)]-(space)-|"
                                         options:0
                                         metrics:metrics
                                         views:views]];
@@ -271,13 +285,19 @@ float kButtonH = 40.0;
     [myConstraint2 addObject:[ACConstraintHelper constraintHeight:self.nextBtn  with:self.playBtn]];
     [myConstraint2 addObject:[ACConstraintHelper constraintHeight:self.preBtn   with:self.playBtn]];
     [myConstraint2 addObject:[ACConstraintHelper constraintHeight:self.expandBtn   with:self.playBtn]];
+    
+    [myConstraint2 addObject:[ACConstraintHelper constraintHeight:self.timeLeftLabel   with:self.playBtn]];
+    [myConstraint2 addObject:[ACConstraintHelper constraintHeight:self.timeRightLabel   with:self.playBtn]];
 
-    [myConstraint2 addObject:[ACConstraintHelper constraintCenterY:self.slider  with:self.expandBtn]];
-    [myConstraint2 addObject:[ACConstraintHelper constraintCenterX:self.slider  with:self.bgView]];
+    [myConstraint2 addObject:[ACConstraintHelper constraintCenterY:self.slider with:self.expandBtn]];
+    [myConstraint2 addObject:[ACConstraintHelper constraintCenterY:self.timeRightLabel with:self.expandBtn]];
+    [myConstraint2 addObject:[ACConstraintHelper constraintCenterY:self.timeLeftLabel with:self.expandBtn]];
     
     [myConstraint2 addObjectsFromArray:[ACConstraintHelper constraintSize:self.closeBtn with:self.expandBtn]];
     [myConstraint2 addObject:[ACConstraintHelper constraintCenterY:self.closeBtn  with:self.titleLabel]];
-    [myConstraint2 addObject:[ACConstraintHelper alignLeft:self.closeBtn with:self.hdBtn]];
+
+    [myConstraint2 addObjectsFromArray:[ACConstraintHelper constraintSize:self.hdBtn with:self.expandBtn]];
+    [myConstraint2 addObject:[ACConstraintHelper constraintCenterY:self.hdBtn  with:self.titleLabel]];
 
     [self.bgView addConstraints:myConstraint2];
 }
