@@ -16,6 +16,7 @@
 		E7598A311AE62FF100ABD53B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7598A2F1AE62FF100ABD53B /* LaunchScreen.xib */; };
 		E7598A3D1AE62FF100ABD53B /* ACPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E7598A3C1AE62FF100ABD53B /* ACPlayerTests.m */; };
 		E75C8B731AED393A00E43F54 /* yt_close.png in Resources */ = {isa = PBXBuildFile; fileRef = E75C8B721AED393A00E43F54 /* yt_close.png */; };
+		E75E91631B1B16A5007D6286 /* YoutubeVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E75E91621B1B16A5007D6286 /* YoutubeVideoPlayer.m */; };
 		E7DF13201AEA05400095C03B /* YouTubeAPIService.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DF13061AEA05400095C03B /* YouTubeAPIService.m */; };
 		E7DF13211AEA05400095C03B /* YouTubeVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DF13081AEA05400095C03B /* YouTubeVideoModel.m */; };
 		E7DF13221AEA05400095C03B /* ACConstraintHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DF130B1AEA05400095C03B /* ACConstraintHelper.m */; };
@@ -62,6 +63,8 @@
 		E7598A3B1AE62FF100ABD53B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7598A3C1AE62FF100ABD53B /* ACPlayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACPlayerTests.m; sourceTree = "<group>"; };
 		E75C8B721AED393A00E43F54 /* yt_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yt_close.png; sourceTree = "<group>"; };
+		E75E91611B1B16A5007D6286 /* YoutubeVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YoutubeVideoPlayer.h; sourceTree = "<group>"; };
+		E75E91621B1B16A5007D6286 /* YoutubeVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YoutubeVideoPlayer.m; sourceTree = "<group>"; };
 		E7DF13051AEA05400095C03B /* YouTubeAPIService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouTubeAPIService.h; sourceTree = "<group>"; };
 		E7DF13061AEA05400095C03B /* YouTubeAPIService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouTubeAPIService.m; sourceTree = "<group>"; };
 		E7DF13071AEA05400095C03B /* YouTubeVideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouTubeVideoModel.h; sourceTree = "<group>"; };
@@ -268,6 +271,8 @@
 			children = (
 				E7DF131E1AEA05400095C03B /* YouTubeListTableCell.h */,
 				E7DF131F1AEA05400095C03B /* YouTubeListTableCell.m */,
+				E75E91611B1B16A5007D6286 /* YoutubeVideoPlayer.h */,
+				E75E91621B1B16A5007D6286 /* YoutubeVideoPlayer.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -421,6 +426,7 @@
 				E7598A261AE62FF100ABD53B /* AppDelegate.m in Sources */,
 				E7DF132C1AEA05400095C03B /* YTPlayerView.m in Sources */,
 				E7DF13211AEA05400095C03B /* YouTubeVideoModel.m in Sources */,
+				E75E91631B1B16A5007D6286 /* YoutubeVideoPlayer.m in Sources */,
 				E7DF13231AEA05400095C03B /* ACYTControlView.m in Sources */,
 				E7DF13241AEA05400095C03B /* ACYTPlayerView.m in Sources */,
 				E7DF13201AEA05400095C03B /* YouTubeAPIService.m in Sources */,

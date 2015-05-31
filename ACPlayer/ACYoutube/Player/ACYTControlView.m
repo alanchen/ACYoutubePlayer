@@ -199,6 +199,16 @@ float kTimeH = 30.0;
     self.timeRightLabel.text = [self formatTimeFromSeconds:value];
 }
 
+-(void)showPlayingStatus
+{
+    [self.playBtn setSelected:YES];
+}
+
+-(void)showPauseStatus
+{
+    [self.playBtn setSelected:NO];
+}
+
 #pragma  mark - Layout
 
 -(void)addConstraints

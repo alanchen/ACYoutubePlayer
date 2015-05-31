@@ -36,8 +36,8 @@
 - (YTPlayerState)playerState;
 - (NSURL *)videoUrl;
 
-- (void)setWidthAndKeepRatio:(float)width;
-- (void)setHeightAndKeepRatio:(float)height;
+- (CGSize)setWidthAndKeepRatio:(float)width;
+- (CGSize)setHeightAndKeepRatio:(float)height;
 
 - (void)expand;
 - (void)compress;

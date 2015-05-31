@@ -8,11 +8,7 @@
 
 #import "ViewController.h"
 
-#import "ACYTPlayerView.h"
-
-#import "ACYTControlView.h"
-
-#import "ACConstraintHelper.h"
+#import "YoutubeVideoPlayer.h"
 
 #import "YouTubeAPIService.h"
 
@@ -22,8 +18,8 @@
 
 @interface ViewController () <ACYTPlayerViewDelegate , YTPlayerViewDelegate ,UITableViewDataSource,UITableViewDelegate>
 
-@property (nonatomic,strong) ACYTPlayerView *playerView;
-@property (nonatomic,strong) ACYTControlView *control;
+@property (nonatomic,strong) YoutubeVideoPlayer *playerView;
+
 @property (nonatomic,strong) UITableView *tableView;
 
 @property (nonatomic,strong) NSMutableArray *objects;
@@ -38,8 +34,8 @@
 {
     [super viewDidLayoutSubviews];
     
-    [self.playerView setWidthAndKeepRatio:self.view.frame.size.width];
-    [self.control setFrame:self.playerView.frame];
+    CGSize size = [self.playerView.playerView setWidthAndKeepRatio:self.view.frame.size.width];
+    self.playerView.frame =CGRectMake(0, 0, size.width,  size.height);
     
     [self.tableView setFrame:CGRectMake(0,
                                         self.playerView.frame.size.height,
@@ -51,25 +47,14 @@
     
     [super viewDidLoad];
 
-    self.playerView = [[ACYTPlayerView alloc] initWithFrame:self.view.frame];
-    self.playerView.playerViewDelegate = self;
+    self.playerView = [YoutubeVideoPlayer view];
+    self.playerView.playerView.playerViewDelegate = self;
     [self.view addSubview:self.playerView];
-    
-    self.control = [[ACYTControlView alloc] initWithFrame:self.playerView.frame];
-    [self.control hideWithAnimation:NO];
-    [self.view addSubview:self.control];
 
     //////////////////////////////////////////////////////////////////////////////
     
-    [self.control.nextBtn addTarget:self action:@selector(nextPressed) forControlEvents:UIControlEventTouchUpInside];
-    [self.control.preBtn addTarget:self action:@selector(prePressed) forControlEvents:UIControlEventTouchUpInside];
-    [self.control.playBtn addTarget:self action:@selector(playPressed) forControlEvents:UIControlEventTouchUpInside];
-    [self.control.expandBtn addTarget:self action:@selector(expandPressed) forControlEvents:UIControlEventTouchUpInside];
-    [self.control.hdBtn addTarget:self action:@selector(hdPressed) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.control.slider addTarget:self action:@selector(sliderAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.control.slider addTarget:self action:@selector(sliderAction:) forControlEvents:UIControlEventTouchUpOutside];
-
+    [self.playerView.control.nextBtn addTarget:self action:@selector(nextPressed) forControlEvents:UIControlEventTouchUpInside];
+    [self.playerView.control.preBtn addTarget:self action:@selector(prePressed) forControlEvents:UIControlEventTouchUpInside];
 
     //////////////////////////////////////////////////////////////////////////////
     
@@ -111,27 +96,21 @@
     
     if( self.currentIndex >= [self.objects count] )
         self.currentIndex = 0;
- 
-    YouTubeVideoModel *model =  [self.objects objectAtIndex: self.currentIndex];
-    [self.playerView playVideoWithVideoId:model.videoId];
-    [self.control.playBtn setSelected:YES];
     
-    [self.control.titleLabel setText:model.title];
-
+    YouTubeVideoModel *model =  [self.objects objectAtIndex: self.currentIndex];
+    [self.playerView playVideo:model.videoId title:model.title];
 }
 
 #pragma mark - Player Delegate
 
+- (void)playerView:(YTPlayerView *)playerView didChangeToState:(YTPlayerState)state
+{
+    [self.playerView updateControlLayoutToState:state];
+}
+
 - (void)playerViewDidPlaying:(ACYTPlayerView *)playerView seekTime:(float)time
 {
-    [self.control setSliedrValue:time];
-    [self.control setLeftTime:playerView.currentTime];
-    [self.control setRightTime:playerView.duration];
-    
-    if([self.playerView playerState] == kYTPlayerStateEnded)
-    {
-    
-    }
+    [self.playerView playVideoSliderValue:time currenttime:playerView.currentTime duration:playerView.duration];
 }
 
 - (void)playerViewDidEnd:(ACYTPlayerView *)playerView videoId:(NSString *)vid
@@ -141,53 +120,6 @@
 }
 
 #pragma mark - Action
-
--(void)sliderAction:(UISlider *)s
-{    
-    [self.playerView seekTo:self.control.slider.value];
-}
-
--(void)hdPressed
-{
-    if(!self.control.hdBtn.isSelected)
-    {
-        [self.control.hdBtn setSelected:YES];
-        [self.playerView changeToQualityMedium];
-    }
-    else
-    {
-        [self.control.hdBtn setSelected:NO];
-        [self.playerView changeToQualityHD];
-    }
-}
-
--(void)expandPressed
-{
-    if(!self.control.expandBtn.isSelected)
-    {
-        [self.control.expandBtn setSelected:YES];
-        [self.playerView expand];
-    }
-    else
-    {
-        [self.control.expandBtn setSelected:NO];
-        [self.playerView compress];
-    }
-}
-
--(void)playPressed
-{
-    if(!self.control.playBtn.isSelected)
-    {
-        [self.control.playBtn setSelected:YES];
-        [self.playerView playVideo];
-    }
-    else
-    {
-        [self.control.playBtn setSelected:NO];
-        [self.playerView pauseVideo];
-    }
-}
 
 -(void)nextPressed
 {

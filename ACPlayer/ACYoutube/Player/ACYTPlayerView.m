@@ -136,7 +136,7 @@
 
 - (void)playerView:(YTPlayerView *)playerView didChangeToState:(YTPlayerState)state
 {
-//    NSLog(@"playerView didChangeToState %ld", (long)state);
+    NSLog(@"playerView didChangeToState %ld", (long)state);
     
 //    kYTPlayerStateUnstarted   0
 //    kYTPlayerStateEnded       1
@@ -263,7 +263,6 @@
     
     float currentTime = self.playerView.currentTime;
     
-    [self.playerView stopVideo];
     [self.playerView cueVideoById:self.currentVideoId startSeconds:currentTime suggestedQuality:q];
     [self.playerView playVideo];
 }
@@ -273,17 +272,12 @@
     float duration = self.duration?self.duration:1.0;
     float targetSec =  duration * percentage;
     
-    [self.playerView stopVideo];
     [self seekToSeconds:targetSec];
-    [self playVideo];
-
 }
 
 - (void)seekToSeconds:(float)seekToSeconds
 {
-    [self.playerView stopVideo];
     [self.playerView seekToSeconds:seekToSeconds allowSeekAhead:YES];
-    [self playVideo];
 }
 
 - (NSTimeInterval)duration
@@ -306,7 +300,7 @@
     return  self.playerView.videoUrl;
 }
 
-- (void)setWidthAndKeepRatio:(float)width
+- (CGSize)setWidthAndKeepRatio:(float)width
 {
     float r = 9.0/16.0; //  ratio is 16:9
     
@@ -318,9 +312,11 @@
     
     [self setNeedsLayout];
     [self layoutIfNeeded];
+    
+    return CGSizeMake(width, h);
 }
 
-- (void)setHeightAndKeepRatio:(float)height
+- (CGSize)setHeightAndKeepRatio:(float)height
 {
     float r = 16.0/9.0; //  ratio is 16:9
     
@@ -332,7 +328,8 @@
     
     [self setNeedsLayout];
     [self layoutIfNeeded];
-
+    
+    return CGSizeMake(w, height);
 }
 
 -(void)expand

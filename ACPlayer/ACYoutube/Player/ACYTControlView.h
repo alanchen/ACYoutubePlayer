@@ -35,5 +35,10 @@
 
 -(void)setRightTime:(float)value;
 
+-(void)showPlayingStatus;
+
+-(void)showPauseStatus;
+
+
 
 @end
